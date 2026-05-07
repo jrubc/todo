@@ -33,10 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final _tasks = <String>[];
 
   void _addTask() {
-    setState(() {
-      _tasks.add(_controller.text);
-      _controller.clear();
-    });
+    final text = _controller.text.trim();
+    if(text.isNotEmpty) {
+      setState(() {
+        _tasks.add(text);
+        _controller.clear();
+      });
+    }
   }
 
   void _removeTask(int index) {
