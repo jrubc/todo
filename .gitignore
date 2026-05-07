@@ -1,0 +1,13 @@
+# Android
+android/.gradle/
+
+# Flutter / Dart
+build/
+.dart_tool/
+
+# Editor
+*.iml
+.idea/
+
+# FVM Version Cache
+.fvm/
