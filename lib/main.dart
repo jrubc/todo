@@ -39,6 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _removeTask(int index) {
+    setState(() {
+      _tasks.removeAt(index);
+    });
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -57,6 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text(_tasks[index]),
+            trailing: IconButton(
+              onPressed: () => _removeTask(index),
+              icon: const Icon(Icons.delete),
+            ),
           );
         }
       ),
