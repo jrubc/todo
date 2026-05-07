@@ -30,10 +30,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _controller = TextEditingController();
+  final _tasks = <String>[];
 
   void _addTask() {
     setState(() {
-        // TODO: add task in list of tasks
+      _tasks.add(_controller.text);
+      _controller.clear();
     });
   }
 
@@ -50,16 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text('You have entered the next text:'),
-            Text(
-              _controller.text,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: _tasks.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(_tasks[index]),
+          );
+        }
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
