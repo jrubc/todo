@@ -2,6 +2,7 @@
 android/.gradle/
 
 # Flutter / Dart
+.flutter-plugins-dependencies
 build/
 .dart_tool/
 
