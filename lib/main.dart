@@ -15,6 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
+      darkTheme: ThemeData(
+        colorScheme: .fromSeed(
+          brightness: Brightness.dark,
+          seedColor: Colors.deepPurple
+        ),
+      ),
       home: const MyHomePage(title: 'ToDo'),
     );
   }
